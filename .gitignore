@@ -1,25 +1,88 @@
-# Data
-data/original/
-data/processed/
+# ================================
+# DATASET E DATI PESANTI
+# ================================
+data/
 
-# Models and experiments
-experiments/
+# ================================
+# MODELLI E CHECKPOINTS
+# ================================
 models/
+checkpoints/
 *.keras
 *.h5
+*.hdf5
+*.ckpt
 *.pt
 *.pth
-*.ckpt
+*.onnx
+*.npy
+*.npz
+*.pkl
+*.pickle
 
-# Python
+# ================================
+# ESPERIMENTI
+# Mantieni experiments/, ma ignora pesi e checkpoint
+# ================================
+experiments/**/*.keras
+experiments/**/*.h5
+experiments/**/*.hdf5
+experiments/**/*.ckpt
+experiments/**/*.pt
+experiments/**/*.pth
+experiments/**/checkpoints/
+experiments/**/models/
+
+# ================================
+# LOGGING
+# ================================
+wandb/
+mlruns/
+lightning_logs/
+tensorboard/
+logs/
+*.log
+
+# ================================
+# AMBIENTE PYTHON
+# ================================
+venv/
+env/
+.venv/
 __pycache__/
-*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# ================================
+# JUPYTER
+# ================================
 .ipynb_checkpoints/
 
-# OS
-.DS_Store
-
-# Environments
-.venv/
-venv/
+# ================================
+# CONFIGURAZIONI LOCALI
+# ================================
 .env
+config_local.py
+*.local.py
+credentials.json
+token.json
+
+# ================================
+# SISTEMA OPERATIVO
+# ================================
+.DS_Store
+Thumbs.db
+desktop.ini
+__MACOSX/
+
+# ================================
+# IDE
+# ================================
+.vscode/
+.idea/
+*.code-workspace
