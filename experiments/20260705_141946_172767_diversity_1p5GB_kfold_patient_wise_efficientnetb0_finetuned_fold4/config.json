@@ -1,0 +1,32 @@
+{
+  "dataset_config": "diversity_1p5GB",
+  "split_type": "kfold_patient_wise",
+  "fold": 4,
+  "backbone": "efficientnetb0",
+  "image_size": [
+    224,
+    224
+  ],
+  "batch_size": 16,
+  "seed": 42,
+  "fast_dev_run": false,
+  "max_folds": 5,
+  "folds_to_run": null,
+  "skip_existing_runs": false,
+  "threshold": 0.5,
+  "model_only_timing_max_batches": 5,
+  "model_only_timing_repeats": 3,
+  "source_csv": "/Users/bertu/Projects/HistoBreastNet/data/processed/diversity_1p5GB/patient_wise_folds.csv",
+  "n_train": 1928,
+  "n_val": 461,
+  "n_test": 449,
+  "training_mode": "finetuned",
+  "frozen_learning_rate": 0.001,
+  "finetune_learning_rate": 1e-05,
+  "frozen_max_epochs": 15,
+  "finetune_max_epochs": 15,
+  "unfreeze_last_n": 30,
+  "batch_norm_frozen": true,
+  "training_time_is_cumulative": true,
+  "dropout_rate": 0.3
+}
