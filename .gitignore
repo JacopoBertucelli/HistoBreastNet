@@ -1,11 +1,9 @@
 # ================================
 # DATASET E DATI PESANTI
 # ================================
-data/
+data/*
 !data/processed/
-!data/processed/**/
-!data/processed/*/.csv
-!data/processed/*/.json
+*.zip
 
 # ================================
 # MODELLI E CHECKPOINTS
