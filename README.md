@@ -23,6 +23,7 @@ HistoBreastNet è un progetto del corso di Deep Learning dedicato alla classific
 - [Interpretabilità e robustness](#interpretabilità-e-robustness)
 - [Riproducibilità](#riproducibilità)
 - [Team](#team)
+- [Citazione del dataset](#citazione-del-dataset)
 
 ## Descrizione del progetto
 
@@ -476,6 +477,33 @@ Il notebook 04 non richiede i modelli `.keras`. Il notebook 05 richiede invece t
 |---|---|
 | Jacopo Bertucelli | Transfer learning, D1, D3, Grad-CAM e robustness |
 | Enrico Molinari | Preprocessing, CNN baseline e D2 |
+
+## Citazione del dataset
+
+Il dataset BreakHis è stato utilizzato esclusivamente per finalità didattiche e sperimentali. Come indicato dalla pagina ufficiale del database, l’utilizzo del dataset per ricerca non commerciale richiede il riconoscimento della fonte tramite citazione del lavoro originale.
+
+Il dataset è distribuito con licenza Creative Commons Attribution 4.0 International.
+
+Citazione consigliata:
+
+Spanhol, F. A., Oliveira, L. S., Petitjean, C., & Heutte, L. (2016).<br>
+*A Dataset for Breast Cancer Histopathological Image Classification*.<br>
+IEEE Transactions on Biomedical Engineering, 63(7), 1455–1462.
+
+```bibtex
+@article{spanhol2016dataset,
+  title={A Dataset for Breast Cancer Histopathological Image Classification},
+  author={Spanhol, Fabio A. and Oliveira, Luiz S. and Petitjean, Caroline and Heutte, Laurent},
+  journal={IEEE Transactions on Biomedical Engineering},
+  volume={63},
+  number={7},
+  pages={1455--1462},
+  year={2016},
+  publisher={IEEE}
+}
+```
+
+Il progetto non ha finalità cliniche o diagnostiche ed è stato realizzato esclusivamente per un’attività didattica di Deep Learning.
 
 ## Ringraziamenti e limitazioni d'uso
 
