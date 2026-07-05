@@ -482,9 +482,9 @@ Il notebook 04 non richiede i modelli `.keras`. Il notebook 05 richiede invece t
 
 Il dataset BreakHis è stato utilizzato esclusivamente per finalità didattiche e sperimentali. Come indicato dalla pagina ufficiale del database, l’utilizzo del dataset per ricerca non commerciale richiede il riconoscimento della fonte tramite citazione del lavoro originale.
 
-Il dataset è distribuito con licenza Creative Commons Attribution 4.0 International.
+Il dataset è distribuito con licenza Creative Commons Attribution 4.0 International License (CC BY 4.0).
 
-Citazione consigliata:
+Riferimento bibliografico del dataset:
 
 Spanhol, F. A., Oliveira, L. S., Petitjean, C., & Heutte, L. (2016).<br>
 *A Dataset for Breast Cancer Histopathological Image Classification*.<br>
