@@ -1,0 +1,2 @@
+dataset_config,model,split_type,k,accuracy_mean,accuracy_std,precision_mean,precision_std,recall_mean,recall_std,f1_mean,f1_std,auroc_mean,auroc_std,recall_malignant_mean,recall_malignant_std,training_time_sec_mean,training_time_sec_std,inference_time_ms_per_image_mean,inference_time_ms_per_image_std
+diversity_1p5GB,baseline_cnn,kfold_patient_wise,5,0.6985,0.1416,0.7053,0.2524,0.6995,0.1575,0.6429,0.2133,0.8358,0.0794,0.722,0.3576,96.686,21.7901,0.5614,0.0953

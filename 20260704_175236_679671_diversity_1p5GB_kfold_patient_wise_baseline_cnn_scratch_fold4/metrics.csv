@@ -1,0 +1,2 @@
+dataset_config,split_type,fold,model,training_mode,experiment,accuracy,precision,recall,f1,recall_malignant,auroc,tn,fp,fn,tp,training_time_sec,avg_epoch_time_sec,inference_time_ms_per_image,n_params,model_size_mb,n_train,n_val,n_test,epochs_run,notes
+diversity_1p5GB,kfold_patient_wise,4,baseline_cnn,from_scratch,20260704_175236_679671_diversity_1p5GB_kfold_patient_wise_baseline_cnn_scratch_fold4,0.8997772828507795,0.9081632653061225,0.9096385542168675,0.8997693280750056,1.0,0.9554016064257028,204,45,0,200,114.82,6.04,0.686,258529,3.19,1928,461,449,19,

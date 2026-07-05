@@ -1,0 +1,24 @@
+{
+  "dataset_config": "diversity_1p5GB",
+  "split_type": "kfold_patient_wise",
+  "fold": 3,
+  "model": "baseline_cnn",
+  "training_mode": "from_scratch",
+  "image_size": [
+    224,
+    224
+  ],
+  "batch_size": 32,
+  "seed": 42,
+  "max_epochs": 40,
+  "patience": 8,
+  "optimizer": "adam",
+  "learning_rate": 0.001,
+  "loss": "binary_crossentropy",
+  "class_weight": "balanced",
+  "quick_test": false,
+  "source_config_dir": "/content/drive/MyDrive/HistoBreastNet/data/processed/diversity_1p5GB",
+  "n_train": 1948,
+  "n_val": 326,
+  "n_test": 564
+}
