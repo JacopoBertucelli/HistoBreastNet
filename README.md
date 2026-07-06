@@ -157,20 +157,48 @@ Il notebook 04 lavora principalmente sulle predizioni e sui CSV aggregati e **no
 
 ## Installazione
 
-Non è presente un file `requirements.txt`. Le dipendenze principali possono essere installate con:
+La repository include due file di dipendenze:
+
+| File | Ambiente consigliato | Note |
+|---|---|---|
+| `requirements.txt` | Google Colab, Linux, ambienti standard | Include TensorFlow standard |
+| `requirements-macos.txt` | Mac Apple Silicon | Usa `tensorflow-macos` e `tensorflow-metal` |
+
+### Ambiente standard / Colab / Linux
 
 ```bash
-pip install numpy pandas matplotlib scikit-learn pillow tensorflow
+python -m pip install --upgrade pip
+pip install -r requirements.txt
 ```
 
-Per l'esecuzione locale dei notebook:
+### Mac Apple Silicon
+
+Su Mac con chip Apple Silicon usare il file dedicato:
 
 ```bash
-pip install jupyter
+python -m pip install --upgrade pip
+pip install -r requirements-macos.txt
+```
+
+Non installare `requirements.txt` e `requirements-macos.txt` nello stesso ambiente, perché il primo usa TensorFlow standard mentre il secondo usa `tensorflow-macos` con accelerazione `tensorflow-metal`.
+
+### Esecuzione locale dei notebook
+
+Per usare i notebook localmente:
+
+```bash
 jupyter notebook
 ```
 
-TensorFlow è necessario soprattutto per i notebook 03 e 05. Su Apple Silicon può essere usato l'ambiente TensorFlow locale già configurato; in Google Colab TensorFlow è normalmente disponibile oppure può essere installato nella sessione. Non vengono imposte versioni precise perché la repository non contiene un ambiente versionato.
+oppure:
+
+```bash
+jupyter lab
+```
+
+Se si usa un ambiente virtuale o Conda, selezionare il kernel corretto all'interno di Jupyter.
+
+TensorFlow è necessario soprattutto per i notebook `03_transfer_learning.ipynb` e `05_explainability_robustness.ipynb`.
 
 ## Esecuzione in Google Colab
 
