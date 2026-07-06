@@ -149,7 +149,7 @@ Questi file non sono presenti su GitHub. Devono essere generati eseguendo `01_pr
 | `data/processed/diversity_1p5GB/*split*.csv` e `patient_wise_folds.csv` | No | Notebook 02 e 03 | Split e fold patient-wise generati dal notebook 01 |
 | `data/processed/diversity_1p5GB/images/` | No | Notebook 02, 03 e 05 | Immagini del subset necessarie per training, inferenza e Grad-CAM |
 | `results/` | Sì, dove presente | Consultazione dei risultati finali | Contiene CSV, tabelle e figure già generati |
-| `model.keras` | Dipende dalla consegna | `05_explainability_robustness.ipynb` | Necessari per rigenerare Grad-CAM e robustness |
+| `model.keras` | No | `05_explainability_robustness.ipynb` | Non presenti su GitHub per evitare problemi di dimensione; necessari per rigenerare Grad-CAM e robustness |
 
 > **Nota:** i CSV in `results/` sono output finali delle analisi, mentre i CSV in `data/processed/` sono input intermedi generati dal preprocessing. Poiché `data/` non è versionata, per rieseguire l'intera pipeline è necessario rigenerare o fornire separatamente `data/processed/diversity_1p5GB/`. I risultati versionati permettono di consultare tabelle e figure finali, ma non sostituiscono tutti gli input necessari alla riesecuzione.
 
@@ -448,7 +448,7 @@ Le mappe forniscono un supporto qualitativo per osservare le regioni associate a
   <img src="results/05_explainability_robustness/figures/contact_sheets/gradcam_contact_sheet_all_examples.png" alt="Contact sheet Grad-CAM" width="900"/>
 </p>
 
-La robustezza viene valutata su perturbazioni leggere di brightness, contrast, rumore gaussiano e blur. Il notebook 05 salva predizioni, variazioni di probabilità, flip rate, accuratezza per perturbazione e contact sheet visuali. Sui risultati presenti sono stati analizzati 200 campioni con sette perturbazioni; il flip rate medio è 0,0625 e la perturbazione più sensibile è il rumore gaussiano, con flip rate 0,125.
+La robustezza viene valutata su perturbazioni leggere di brightness, contrast, rumore gaussiano e blur. Il notebook 05 salva predizioni, variazioni di probabilità, flip rate, accuratezza per perturbazione e contact sheet visuali. Sui risultati presenti sono stati analizzati 200 campioni con sei perturbazioni leggere più la condizione originale; il flip rate medio sulle perturbazioni è 0,0825 e la perturbazione più sensibile è il rumore gaussiano, con flip rate 0,135.
 
 <p align="center">
   <img src="results/05_explainability_robustness/figures/robustness/robustness_flip_rate.png" alt="Flip rate per perturbazione" width="750"/>
@@ -460,7 +460,7 @@ La robustezza viene valutata su perturbazioni leggere di brightness, contrast, r
 - I risultati finali e aggregati sono salvati in `results/` e, dove versionati, possono essere consultati senza rieseguire il training.
 - Configurazioni, log, predizioni e artefatti delle singole run sono salvati in `experiments/`.
 - L'intera cartella `data/`, inclusi i CSV intermedi prodotti dal notebook 01, non è versionata su GitHub.
-- La disponibilità dei file `.keras` dipende dalla modalità di consegna del progetto.
+- I file `.keras` non sono versionati su GitHub per evitare problemi di dimensione; per rigenerare Grad-CAM e robustness devono essere forniti separatamente, copiati da Google Drive oppure rigenerati eseguendo `03_transfer_learning.ipynb` con `SAVE_MODELS = True`.
 - In Colab occorre impostare `COLAB_PROJECT_ROOT` sul percorso effettivo della repository.
 - Per rigenerare Grad-CAM e robustness, il notebook 05 richiede i cinque modelli EfficientNetB0 fine-tuned originali.
 
@@ -497,7 +497,7 @@ experiments/*_diversity_1p5GB_kfold_patient_wise_efficientnetb0_finetuned_fold3/
 experiments/*_diversity_1p5GB_kfold_patient_wise_efficientnetb0_finetuned_fold4/model.keras
 ```
 
-Il notebook 04 non richiede i modelli `.keras`. Il notebook 05 richiede invece tutti e cinque i modelli indicati sopra per rigenerare Grad-CAM e robustness. Se questi file non sono inclusi nella repository, devono essere forniti separatamente o caricati su Google Drive e poi copiati in `experiments/` mantenendo la struttura originale delle fold.
+Il notebook 04 non richiede i modelli `.keras`. Il notebook 05 richiede invece tutti e cinque i modelli indicati sopra per rigenerare Grad-CAM e robustness. Poiché questi file non sono versionati su GitHub, devono essere forniti separatamente, caricati su Google Drive e poi copiati in `experiments/` mantenendo la struttura originale delle fold, oppure rigenerati eseguendo `03_transfer_learning.ipynb` con `SAVE_MODELS = True`.
 
 ## Team
 
