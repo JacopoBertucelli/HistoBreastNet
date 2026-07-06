@@ -153,7 +153,7 @@ Questi file non sono presenti su GitHub. Devono essere generati eseguendo `01_pr
 
 > **Nota:** i CSV in `results/` sono output finali delle analisi, mentre i CSV in `data/processed/` sono input intermedi generati dal preprocessing. Poiché `data/` non è versionata, per rieseguire l'intera pipeline è necessario rigenerare o fornire separatamente `data/processed/diversity_1p5GB/`. I risultati versionati permettono di consultare tabelle e figure finali, ma non sostituiscono tutti gli input necessari alla riesecuzione.
 
-Il notebook 04 lavora principalmente sulle predizioni e sui CSV aggregati e **non richiede modelli `.keras`**. Il notebook 05, invece, non effettua training ma richiede i cinque modelli EfficientNetB0 fine-tuned originali, uno per fold. Se i file `model.keras` non sono inclusi nella repository, devono essere forniti separatamente o copiati da Google Drive nella cartella `experiments/`, mantenendo la struttura originale delle fold.
+Il notebook 04 lavora principalmente sulle predizioni e sui CSV aggregati e **non richiede modelli `.keras`**. Il notebook 05, invece, non effettua training ma richiede i cinque modelli EfficientNetB0 fine-tuned originali, uno per fold. I file `model.keras` **non sono presenti su GitHub** per evitare problemi legati alla dimensione degli artefatti binari. Per rieseguire il notebook 05, i modelli devono quindi essere forniti separatamente, copiati da Google Drive nella cartella `experiments/` mantenendo la struttura originale delle fold, oppure rigenerati eseguendo `03_transfer_learning.ipynb` con `SAVE_MODELS = True`.
 
 ## Installazione
 
