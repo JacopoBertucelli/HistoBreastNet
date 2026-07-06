@@ -1,0 +1,16 @@
+# Dipendenze per Mac Apple Silicon.
+# Usare questo file al posto di requirements.txt su Mac Apple Silicon.
+# Non installarlo dopo requirements.txt, perché requirements.txt contiene tensorflow standard.
+# Non usare questo file su Colab/Linux.
+numpy>=1.26
+pandas>=2.0
+matplotlib>=3.7
+scikit-learn>=1.3
+Pillow>=10.0
+tqdm>=4.66
+jupyter>=1.0
+ipykernel>=6.0
+
+# TensorFlow per Mac Apple Silicon
+tensorflow-macos
+tensorflow-metal
