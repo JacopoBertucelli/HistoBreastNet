@@ -5,35 +5,6 @@ data/*
 !data/processed/
 *.zip
 
-# ================================
-# MODELLI E CHECKPOINTS
-# ================================
-models/
-checkpoints/
-*.keras
-*.h5
-*.hdf5
-*.ckpt
-*.pt
-*.pth
-*.onnx
-*.npy
-*.npz
-*.pkl
-*.pickle
-
-# ================================
-# ESPERIMENTI
-# Mantieni experiments/, ma ignora pesi e checkpoint
-# ================================
-experiments/**/*.keras
-experiments/**/*.h5
-experiments/**/*.hdf5
-experiments/**/*.ckpt
-experiments/**/*.pt
-experiments/**/*.pth
-experiments/**/checkpoints/
-experiments/**/models/
 
 # ================================
 # LOGGING
