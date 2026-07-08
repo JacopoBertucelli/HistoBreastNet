@@ -122,6 +122,17 @@ Eventuali cartelle esplorative presenti nella copia di lavoro non fanno parte de
 | Sottotipi | adenosis, fibroadenoma, phyllodes tumor, tubular adenoma, ductal carcinoma, lobular carcinoma, mucinous carcinoma, papillary carcinoma |
 | Split finale | 5-fold patient-wise |
 
+### Download del dataset originale
+
+Il dataset BreakHis_v1 non è incluso nella repository GitHub per motivi di dimensione. Può essere consultato e scaricato dai seguenti riferimenti:
+
+| Fonte | Link | Note |
+|---|---|---|
+| Pagina ufficiale UFPR | [Breast Cancer Histopathological Database (BreakHis)](https://web.inf.ufpr.br/vri/databases/breast-cancer-histopathological-database-breakhis/) | Fonte ufficiale del dataset e delle informazioni di citazione/licenza |
+| Kaggle | [BreakHis dataset](https://www.kaggle.com/datasets/ambarish/breakhis) | Mirror pratico per il download del dataset |
+
+Per la riproduzione completa della pipeline, il dataset originale deve essere posizionato in `data/original/` oppure deve essere disponibile la cartella preprocessata `data/processed/diversity_1p5GB/`, scaricabile dai materiali esterni indicati nella sezione successiva.
+
 Il dataset originale BreakHis_v1 non è incluso nella repository a causa delle sue dimensioni. L'intera cartella `data/` è esclusa dal versionamento Git: né `data/original/` né i file generati sotto `data/processed/` sono disponibili su GitHub.
 
 La pipeline usa il subset `diversity_1p5GB`, costruito a livello di paziente. I risultati del preprocessing utilizzati negli esperimenti riportano **2.838 immagini appartenenti a 33 pazienti** (15 benigni e 18 maligni), per una dimensione effettiva di circa 1,59 GB decimali.
