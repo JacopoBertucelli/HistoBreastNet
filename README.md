@@ -15,6 +15,7 @@ HistoBreastNet è un progetto del corso di Deep Learning dedicato alla classific
 - [Struttura della repository](#struttura-della-repository)
 - [Dataset](#dataset)
 - [Materiali esterni](#materiali-esterni)
+- [Download dei materiali esterni](#download-dei-materiali-esterni)
 - [Installazione](#installazione)
 - [Esecuzione in Google Colab](#esecuzione-in-google-colab)
 - [Ordine di esecuzione dei notebook](#ordine-di-esecuzione-dei-notebook)
@@ -87,7 +88,8 @@ HistoBreastNet/
 │   ├── *_mobilenetv2_frozen_*/
 │   ├── *_mobilenetv2_finetuned_*/
 │   ├── *_efficientnetb0_frozen_*/
-│   └── *_efficientnetb0_finetuned_*/
+│   ├── *_efficientnetb0_finetuned_*/
+│   └── .../model.keras
 ├── results/
 │   ├── 02_baseline_cnn/
 │   ├── 03_transfer_learning/
@@ -138,7 +140,7 @@ data/processed/diversity_1p5GB/
     └── histology_slides/
 ```
 
-Questi file non sono presenti su GitHub. Devono essere generati eseguendo `01_preprocessing.ipynb` a partire dal dataset originale oppure forniti separatamente insieme alla cartella `data/processed/diversity_1p5GB/`.
+Questi file non sono inclusi nella repository GitHub. Devono essere generati eseguendo `01_preprocessing.ipynb` a partire dal dataset originale oppure forniti separatamente insieme alla cartella `data/processed/diversity_1p5GB/`.
 
 ## Materiali esterni
 
@@ -149,11 +151,31 @@ Questi file non sono presenti su GitHub. Devono essere generati eseguendo `01_pr
 | `data/processed/diversity_1p5GB/*split*.csv` e `patient_wise_folds.csv` | No | Notebook 02 e 03 | Split e fold patient-wise generati dal notebook 01 |
 | `data/processed/diversity_1p5GB/images/` | No | Notebook 02, 03 e 05 | Immagini del subset necessarie per training, inferenza e Grad-CAM |
 | `results/` | Sì, dove presente | Consultazione dei risultati finali | Contiene CSV, tabelle e figure già generati |
-| `model.keras` | No | `05_explainability_robustness.ipynb` | Non presenti su GitHub per evitare problemi di dimensione; necessari per rigenerare Grad-CAM e robustness |
+| `model.keras` | Sì | `05_explainability_robustness.ipynb` | Modelli salvati in `experiments/`, necessari per rigenerare Grad-CAM e robustness |
 
 > **Nota:** i CSV in `results/` sono output finali delle analisi, mentre i CSV in `data/processed/` sono input intermedi generati dal preprocessing. Poiché `data/` non è versionata, per rieseguire l'intera pipeline è necessario rigenerare o fornire separatamente `data/processed/diversity_1p5GB/`. I risultati versionati permettono di consultare tabelle e figure finali, ma non sostituiscono tutti gli input necessari alla riesecuzione.
 
-Il notebook 04 lavora principalmente sulle predizioni e sui CSV aggregati e **non richiede modelli `.keras`**. Il notebook 05, invece, non effettua training ma richiede i cinque modelli EfficientNetB0 fine-tuned originali, uno per fold. I file `model.keras` **non sono presenti su GitHub** per evitare problemi legati alla dimensione degli artefatti binari. Per rieseguire il notebook 05, i modelli devono quindi essere forniti separatamente, copiati da Google Drive nella cartella `experiments/` mantenendo la struttura originale delle fold, oppure rigenerati eseguendo `03_transfer_learning.ipynb` con `SAVE_MODELS = True`.
+Il notebook 04 lavora principalmente sulle predizioni e sui CSV aggregati e **non richiede modelli `.keras`**. Il notebook 05, invece, non effettua training ma richiede i cinque modelli EfficientNetB0 fine-tuned originali, uno per fold. I file `model.keras` sono ora versionati nella repository dentro `experiments/`, mantenendo la struttura originale delle run. In alternativa, possono essere rigenerati eseguendo `03_transfer_learning.ipynb` con `SAVE_MODELS = True`.
+
+## Download dei materiali esterni
+
+Anche se la repository contiene notebook, risultati, esperimenti e modelli `.keras`, la cartella `data/` non è versionata su GitHub. Per rieseguire la pipeline completa o per lavorare direttamente con il subset già preprocessato, sono disponibili i seguenti materiali esterni:
+
+| Risorsa | Link | Contenuto |
+|---|---|---|
+| Google Drive del progetto | [Apri Google Drive](https://drive.google.com/drive/folders/1eM-R4AQQy5vURBJE0qSYfLdCh5T9zRiF?usp=sharing) | Copia completa/di supporto del progetto e degli artefatti condivisi |
+| Cartella `data/` su OneDrive | [Scarica cartella data](https://unicadrsi-my.sharepoint.com/:f:/g/personal/j_bertucelli_studenti_unica_it/IgCaUIiJyQHqS7N7Wy_RND-rAcI49XwyykeJWWhH_2OphCg?e=hYzitE) | Cartella `data/` da copiare nella root del progetto |
+
+Dopo il download, la cartella `data/` deve trovarsi nella root del progetto:
+
+```text
+HistoBreastNet/
+├── data/
+├── notebooks/
+├── experiments/
+├── results/
+└── README.md
+```
 
 ## Installazione
 
@@ -460,7 +482,7 @@ La robustezza viene valutata su perturbazioni leggere di brightness, contrast, r
 - I risultati finali e aggregati sono salvati in `results/` e, dove versionati, possono essere consultati senza rieseguire il training.
 - Configurazioni, log, predizioni e artefatti delle singole run sono salvati in `experiments/`.
 - L'intera cartella `data/`, inclusi i CSV intermedi prodotti dal notebook 01, non è versionata su GitHub.
-- I file `.keras` non sono versionati su GitHub per evitare problemi di dimensione; per rigenerare Grad-CAM e robustness devono essere forniti separatamente, copiati da Google Drive oppure rigenerati eseguendo `03_transfer_learning.ipynb` con `SAVE_MODELS = True`.
+- I file `.keras` sono versionati nella repository dentro `experiments/`; sono necessari per rigenerare Grad-CAM e robustness nel notebook 05.
 - In Colab occorre impostare `COLAB_PROJECT_ROOT` sul percorso effettivo della repository.
 - Per rigenerare Grad-CAM e robustness, il notebook 05 richiede i cinque modelli EfficientNetB0 fine-tuned originali.
 
@@ -483,7 +505,7 @@ Richiede:
 
 1. la repository GitHub;
 2. la cartella `data/processed/diversity_1p5GB/` fornita separatamente, completa di CSV intermedi e immagini;
-3. gli eventuali file `model.keras` EfficientNetB0 fine-tuned, se si vuole rieseguire il notebook 05.
+3. i file `model.keras` già presenti in `experiments/`, necessari per rieseguire il notebook 05.
 
 I CSV, le tabelle e le figure già versionati in `results/` permettono di consultare gli output finali anche senza rigenerare il preprocessing e tutto il training. Non sostituiscono però `data/processed/diversity_1p5GB/` quando un notebook deve accedere ai metadati, agli split o alle immagini originali del subset.
 
@@ -497,7 +519,7 @@ experiments/*_diversity_1p5GB_kfold_patient_wise_efficientnetb0_finetuned_fold3/
 experiments/*_diversity_1p5GB_kfold_patient_wise_efficientnetb0_finetuned_fold4/model.keras
 ```
 
-Il notebook 04 non richiede i modelli `.keras`. Il notebook 05 richiede invece tutti e cinque i modelli indicati sopra per rigenerare Grad-CAM e robustness. Poiché questi file non sono versionati su GitHub, devono essere forniti separatamente, caricati su Google Drive e poi copiati in `experiments/` mantenendo la struttura originale delle fold, oppure rigenerati eseguendo `03_transfer_learning.ipynb` con `SAVE_MODELS = True`.
+Il notebook 04 non richiede i modelli `.keras`. Il notebook 05 richiede invece tutti e cinque i modelli indicati sopra per rigenerare Grad-CAM e robustness. Questi file sono ora presenti nella repository dentro `experiments/`, mantenendo la struttura originale delle fold. Se necessario, possono comunque essere rigenerati eseguendo `03_transfer_learning.ipynb` con `SAVE_MODELS = True`.
 
 ## Team
 
