@@ -1,0 +1,4 @@
+Protocollo,Accuracy,F1,AUROC,Recall malignant,Interpretazione
+Image-wise,0.876,0.875,0.963,0.934,Possibile stima ottimistica
+Patient-wise singolo,0.558,0.358,0.936,0.000,"Più realistico, ma instabile"
+5-fold patient-wise,0.698 ± 0.142,0.643 ± 0.213,0.836 ± 0.079,0.722 ± 0.358,Riferimento principale
